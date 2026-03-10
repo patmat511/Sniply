@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware 
+from routers import urls
 
 app = FastAPI(
     title="Sniply",
@@ -14,6 +15,8 @@ app.add.middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(urls.router)
 
 @app.get("/health")
 def health_check():
