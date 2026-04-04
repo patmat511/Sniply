@@ -8,7 +8,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-app.add.middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:4200"],
     allow_credentials=True,
