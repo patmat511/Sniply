@@ -16,7 +16,9 @@ WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1
 
-RUN adduser --disabled-password --no-create-home appuser 
+RUN adduser --disabled-password --no-create-home appuser && \
+    apt-get update && apt-get install -y curl &&  \
+    rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /install /usr/local
 COPY --chown=appuser:appuser . .
