@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ShortenComponent } from './components/shorten/shorten.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [ShortenComponent],
+  template: `<app-shorten />`
 })
-export class AppComponent {
-  title = 'frontend';
-}
+export class AppComponent {}
