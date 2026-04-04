@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Sniply</h1>
+  <p>Shorten your long URL in seconds</p>
+
+  <div class="form">
+    <input
+      type="text"
+      [(ngModel)]="originalUrl"
+      placeholder="Paste your long URL here..."
+    />
+    <button (click)="shorten()" [disabled]="isLoading">
+        {{isLoading ? 'Shortening...' : 'Shorten'}}
+    </button>
+  </div>
+
+  <div class="error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="result" *ngIf="result">
+    <p>Your short URL:</p>
+    <a [href]="getShortUrl()" target="_blank">{{ getShortUrl() }}</a>
+    <p class="clicks">Clicks: {{ result.clicks }}</p>
+  </div>
+</div>
